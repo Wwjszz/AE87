@@ -1,4 +1,5 @@
 <template>
+  test4
   <router-view :class="[mode]" />
 </template>
 <script setup lang="ts">
