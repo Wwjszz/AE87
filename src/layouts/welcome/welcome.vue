@@ -21,7 +21,7 @@
   <div id="fullpage">
     <div class="section">
       <div class="welcome-content">
-        <h1 class="welcome-title animate">欢迎来到小阳驾校</h1>
+        <h1 class="welcome-title animate">欢迎来到AE87驾校</h1>
         <p class="welcome-description animate">在这里，我们致力于为您提供高质量的驾驶培训和优秀的教学体验。</p>
         <router-link to="/login" class="welcome-button animate">
           <span class="button-text">进入系统</span>
@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted,onBeforeUnmount } from 'vue';
 import 'fullpage.js/dist/fullpage.min.css';
 import fullpage from 'fullpage.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -115,7 +115,15 @@ onMounted(() => {
     },
     anchors: ['home', 'courses', 'about', 'contact'], // 添加锚点
   });
+
 });
+
+
+onBeforeUnmount(()=>{
+  fullPageInstance.value.destroy('all')
+})
+
+
 </script>
 
 <style lang="less" src="./home-style.less" scoped></style>

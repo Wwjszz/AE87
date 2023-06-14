@@ -18,7 +18,7 @@ const defaultRouterList: Array<RouteRecordRaw> = [
   },
   {
     path: '/',
-    redirect: '/dashboard/base',
+    redirect: '/welcome',
   },
   {
     path: '/welcome',
