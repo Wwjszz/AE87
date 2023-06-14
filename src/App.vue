@@ -1,4 +1,5 @@
 <template>
+  jjj
   <router-view :class="[mode]" />
 </template>
 <script setup lang="ts">
