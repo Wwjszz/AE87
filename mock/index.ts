@@ -195,6 +195,24 @@ export default [
                     title: '树状筛选列表页',
                   },
                 },
+                {
+                  path: 'student',
+                  name: 'ListStu',
+                  component: '/list/student/index',
+                  meta: {
+                    title: '学生列表页',
+                    icon:'usergroup'
+                  },
+                },
+                {
+                  path: 'coach',
+                  name: 'ListCoach',
+                  component: '/list/coach/index',
+                  meta: {
+                    title: '教练列表页',
+                    icon:'user-talk'
+                  },
+                },
               ],
             },
             {

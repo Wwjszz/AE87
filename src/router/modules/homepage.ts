@@ -31,6 +31,15 @@ export default [
           title: '统计报表',
         },
       },
+      {
+        path: 'info',
+        name: 'SchoolInfo',
+        component: () => import('@/pages/dashboard/school-info/index.vue'),
+        meta: {
+          title: '驾校信息',
+          icon:  'mirror'
+        },
+      },
     ],
   },
 ];
