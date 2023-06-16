@@ -16,6 +16,9 @@
       <li class="nav-item">
         <a href="#contact">联系我们</a>
       </li>
+      <li class="nav-item">
+        <a href="#signUp">联系我们</a>
+      </li>
     </ul>
   </nav>
   <div id="fullpage">
@@ -73,11 +76,49 @@
       <a href="tel:1234567890">拨打电话</a>
       <a href="mailto:info@example.com">发送邮件</a>
     </div>
+    <div class="section">
+      <h2>立即报名</h2>
+      <form class="signup-form" @submit="submitForm">
+        <div class="form-group">
+          <label for="name">姓名</label>
+          <input type="text" id="name" v-model="formData.name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">邮箱</label>
+          <input type="email" id="email" v-model="formData.email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">电话号码</label>
+          <input type="tel" id="phone" v-model="formData.phone" required />
+        </div>
+        <div class="form-group">
+          <label for="address">地址</label>
+          <input type="text" id="address" v-model="formData.address" required />
+        </div>
+        <div class="form-group">
+          <label for="gender">性别</label>
+          <select id="gender" v-model="formData.gender" required>
+            <option value="">请选择</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="idCard">身份证号码</label>
+          <input type="text" id="idCard" v-model="formData.idCard" required />
+        </div>
+        <div class="form-group">
+          <label for="idCard">身份证图片</label>
+          <input type="file" id="idCard" accept="image/*" @change="handleFileUpload" />
+        </div>
+        <button type="submit">提交</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted,onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import 'fullpage.js/dist/fullpage.min.css';
 import fullpage from 'fullpage.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -89,6 +130,36 @@ import { COURSES } from './constant';
 library.add(faChalkboardTeacher, faUsers, faCalendarAlt, faBuilding, faTree);
 
 const fullPageInstance = ref(null);
+const formData = ref({
+  name: '',
+  email: '',
+  phone: '',
+  address: '',
+  gender: '',
+  idCard: '',
+});
+
+const submitForm = () => {
+  // Access form data here
+  const { name, email, phone, address, gender, idCard } = formData.value;
+
+  // Perform form submission logic here
+
+  // Clear form data
+  formData.value = {
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    gender: '',
+    idCard: '',
+  };
+};
+
+const handleFileUpload = (event: any) => {
+  const file = event.target.files[0];
+  // Perform further processing or validation of the uploaded file here
+};
 
 const scrollToSection = (sectionAnchor: string) => {
   if (fullPageInstance.value) {
@@ -113,27 +184,25 @@ onMounted(() => {
         });
       }
     },
-    anchors: ['home', 'courses', 'about', 'contact'], // 添加锚点
+    anchors: ['home', 'courses', 'about', 'contact', 'signUp'], // 添加锚点
   });
-
 });
 
-
-onBeforeUnmount(()=>{
-  fullPageInstance.value.destroy('all')
-})
-
-
+onBeforeUnmount(() => {
+  fullPageInstance.value.destroy('all');
+});
 </script>
 
 <style lang="less" src="./home-style.less" scoped></style>
 <style lang="less" src="./course-style.less" scoped></style>
 <style lang="less" src="./animate.less" scoped></style>
+<style lang="less" src="./signUp.less" scoped></style>
 <style lang="less" scoped>
 .section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   text-align: center;
 }
