@@ -213,6 +213,15 @@ export default [
                     icon:'user-talk'
                   },
                 },
+                {
+                  path: 'exam',
+                  name: 'ListExam',
+                  component: '/list/exam/index',
+                  meta: {
+                    title: '考试列表页',
+                    icon:'chart-bubble'
+                  },
+                },
               ],
             },
             {

@@ -17,7 +17,7 @@
         <a href="#contact">联系我们</a>
       </li>
       <li class="nav-item">
-        <a href="#signUp">联系我们</a>
+        <a href="#signUp">自主报名</a>
       </li>
     </ul>
   </nav>
@@ -101,6 +101,7 @@
             <option value="">请选择</option>
             <option value="男">男</option>
             <option value="女">女</option>
+            <option value="sb">LGBT</option>
           </select>
         </div>
         <div class="form-group">
