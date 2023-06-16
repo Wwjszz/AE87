@@ -222,6 +222,15 @@ export default [
                     icon:'chart-bubble'
                   },
                 },
+                {
+                  path: 'check',
+                  name: 'ListCheck',
+                  component: '/list/check/index',
+                  meta: {
+                    title: '审核列表页',
+                    icon:'usergroup-add'
+                  },
+                },
               ],
             },
             {

@@ -25,6 +25,11 @@ const defaultRouterList: Array<RouteRecordRaw> = [
     name: 'welcome',
     component: () => import('@/layouts/welcome/welcome.vue'),
   },
+  {
+    path: '/problem-sets',
+    name: 'problemSets',
+    component: () => import('@/layouts/problem-sets/index.vue'),
+  },
 ];
 // 存放固定路由
 export const homepageRouterList: Array<RouteRecordRaw> = mapModuleRouterList(homepageModules);
